@@ -1,4 +1,5 @@
 import requests
+import json
 
 URL_BASE = "https://swapi.dev/api/"
 
@@ -61,10 +62,28 @@ def validate_fields(data):
 				analysis[d["id"]].append(f)
 	return analysis
 
+def data_to_json(my_dict, file_path):
+	with open(file_path, 'w') as json_file:
+		json.dump(my_dict, json_file)
 
 if __name__ == "__main__":
-	# people = getResource("people")
+	# Get data from all entities (and test printing last vehicle obtained)
+	people = getResource("people")
+	starships = getResource("starships")
+	films = getResource("films")
+	species = getResource("species")
+	planets = getResource("planets")
 	vehicles = getResource("vehicles")
 	print(vehicles[-1])
+
+	# Test analysis with vehicles
 	v_analysis = validate_fields(vehicles)
 	print(v_analysis)
+
+	# Export all entities into different json files
+	data_to_json(people, "people")
+	data_to_json(starships, "starships")
+	data_to_json(films, "films")
+	data_to_json(species, "species")
+	data_to_json(planets, "planets")
+	data_to_json(vehicles, "vehicles")
