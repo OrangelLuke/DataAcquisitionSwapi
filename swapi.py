@@ -204,11 +204,15 @@ if __name__ == "__main__":
     data_to_json(data, "original_data")
 
     # We can use the data from the file to avoid downloading it again
+    f = open('original_data')
+    data = json.load(f)
+    print("Loaded data")
     #data = DATA
 
     print("Generating prompts")
     prompts = generate_all_prompts(data, resources)
     print("All prompts were generated")
+    print(len(prompts))
     print(prompts)
 
     """
