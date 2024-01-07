@@ -222,11 +222,4 @@ CREATE TABLE IF NOT EXISTS films_starships_interaction (
 ) WITHOUT ROWID;
 
 .mode csv films_starships_interaction;
-.import films_starships_interaction.csv films_starships_interaction!!!!!!!!!
-
-DROP TABLE people;
-DROP TABLE films;
-DROP TABLE planets;
-DROP TABLE vehicles;
-DROP TABLE starships;
-DROP TABLE species;
+.import films_starships_interaction.csv films_starships_interaction
